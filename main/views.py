@@ -19,3 +19,9 @@ def news(request):
 		'news':news
 	}
 	return render(request,"news.html",context)
+
+def tips(request):
+	context={
+
+	}
+	return render(request,"tips.html",context)
