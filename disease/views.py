@@ -11,13 +11,21 @@ from .models import *
 from .forms import *
 # Create your views here.
 def disease(request):
-	form=DiseaseForm()
+	form=DiseaseForm(request.POST)
+	patientname=Patientname.objects.all()
 	context={
-		'form':form
+		'form':form,'patientname':patientname
 	}
 	return render(request,"disease.html",context)
 
 def diseaseans(request):
+	cname=request.POST.get("name")
+	symptom=request.POST.get("symptom")
+	if cname==None:
+		print("working")
+		return redirect('/disease/')
+	else:
+		print(cname,symptom)
 	context={
 
 	}
