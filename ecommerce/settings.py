@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'vaccine',
     'main',
     'disease',
+    'cropmap'
 ]
 
 AUTH_USER_MODEL = 'store.CustomUser'

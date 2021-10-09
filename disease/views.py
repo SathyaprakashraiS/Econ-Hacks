@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import JsonResponse
 from datetime import date
 from django.contrib import messages
 from django.http import HttpResponse,HttpResponseRedirect
+from difflib import SequenceMatcher
 #from .utils import cookieCart, cartData, guestOrder
 
 import json
@@ -24,8 +25,14 @@ def diseaseans(request):
 	if cname==None:
 		print("working")
 		return redirect('/disease/')
-	else:
-		print(cname,symptom)
+	search=Diseasetypes.objects.all().filter(patient=cname)
+	for i in search:
+		if ((SequenceMatcher(None,str(symptom),str(i.symptoms)))>0.6):
+			print("match found")
+		else:
+			print("no match found")
+		if symptom in str(i.symptoms):
+			print("found")
 	context={
 
 	}
