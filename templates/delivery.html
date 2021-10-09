@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+{% load static %}
+{% load to_and %}
+<html>
+<head>
+	<title>DELIVERY</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+	<nav id="nav" class="navbar navbar-expand-lg">
+	  <a id="txt" class="navbar-brand" href="{% url 'store' %}"><b>SHOP</b></a>
+	  <button class="navbar-toggler navbar-light bg-warning" type="button" style="background-color: #FF8F00;" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	    <ul class="navbar-nav mr-auto">
+	      <!--<li class="nav-item active">
+	        <a class="nav-link" href="{% url 'store' %}">Store <span class="sr-only">(current)</span></a>
+	      </li>-->
+	      {% if user.is_authenticated %}
+	      <li class="nav-item active">
+	        <a id="txt" class="nav-link" href="/store/history">History <span class="sr-only">(current)</span></a>
+	      </li>
+	 	{% endif %}
+	 	{% if user.is_dboy %}
+	      <li class="nav-item active">
+	        <a id="txt" class="nav-link" href="/store/delivery/"><b style="color:#fc3200">Delivery </b><span class="sr-only">(current)</span></a>
+	      </li>
+	      <li class="nav-item active">
+	        <a class="nav-link" style="color:#FFFFFF" href="/store/vaccine/">Vaccine Form <span class="sr-only">(current)</span></a>
+	      </li>
+	 	{% endif %}
+	    </ul>
+	    {% if user.is_authenticated %}
+	    <div class="form-inline my-2 my-lg-0">
+	     	<a href="login/"class="btn btn-warning">{{request.user.username}}</a>
+	     	
+	     	<!--
+	     	<a href="{% url 'cart' %}">
+	    		<img  id="cart-icon" src="{% static 'images/cart.png' %}">
+	    	</a>
+	    	<p id="cart-total">{{cartItems}}</p>
+		-->
+
+	    </div>
+	    {% else %}
+	<!-- 
+	cant be accesed without authenticating so no use of this part   
+	    <div class="form-inline my-2 my-lg-0">
+	     	<a href="login/"class="btn btn-warning">Login / Signup</a>
+	     	
+	     	<a href="{% url 'cart' %}">
+	    		<img  id="cart-icon" src="{% static 'images/cart.png' %}">
+	    	</a>
+	    	<p id="cart-total">{{cartItems}}</p>
+
+	    </div>
+	-->
+	    {% endif %}
+	  </div>
+	</nav>
+
+	
+	<div class="container">
+
+		
+		
+	
+	<h1 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;color:#FFFFFF;text-align: center;">DELIVERY LIST</h1>
+    <ul class="cards">
+
+  	{% if user.vacinated == 2 %}
+	{% for i in listreslev3 %}
+    <li class="cards_item">
+	<form id="form-id" method="post" action="unidel/">
+        
+	
+				  {% csrf_token %}
+		 
+         <p><b><i class="fa fa-male"></i> Customer Name:</b>{{i.name}}
+			   <input type="hidden" name="custom" value="{{i.pk}}"/></p><hr>
+			   <p><b><i class="fa fa-address-book"></i> Customer Address:</b></p>
+			   {{i.address1}}
+			   {{i.address2}}
+			   <p></p><hr>
+			   <p><b><i class="fa fa-map-marker"></i> City:</b>{{i.city}}</p><hr>
+			   <p><b><i class="fa fa-map-marker"></i> State:</b>{{i.state}}</p><hr>
+			   <p><b><i class="fa fa-map-marker"></i>Zipcode:</b>{{i.zipcode}}</p><hr>
+			   <p><b><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+				restriction level is :</b>{{i.reslev}}</p>
+			 <!-- <a href="unidel/" type="text" name="orderername" >press</a>--> 
+			   <button id="bt" type="submit">Pick</button>
+			</form>		
+	  <!--
+	  <button class="buttondirection" style="float: left;" href="#">Direction</button>
+	  <button class="buttondelivered" style="float: right;" href="#">Delivered</button>
+		-->
+ 
+    </li>
+    {% endfor %}
+
+
+  </ul>
+
+  {% endif %}
+  {% if user.vacinated == 1 %}
+  {% for i in listreslev2 %}
+    <li class="cards_item">
+	<form id="form-id" method="post" action="unidel/">
+      
+	
+				  {% csrf_token %}
+         <b>Customer Name:</b><p>{{i.name}}</p>
+			   <input type="hidden" name="custom" value="{{i.pk}}" />
+			   <p><b>Customer Address:</b></p>
+			   <p>{{i.address1}},</p>
+			   <p>{{i.address2}}</p>
+			   <p><b>City:</b>{{i.city}}</p>
+			   <p><b>State:</b>{{i.state}}</p>
+			   <p><b>Zipcode:</b>{{i.zipcode}}</p>
+			   <p><b>restriction level is :</b>{{i.reslev}}</p>
+			 <!-- <a href="unidel/" type="text" name="orderername" >press</a>--> 
+			   <button id="bt" type="submit">Pick</button>
+			</form>		
+	  <!--
+	  <button class="buttondirection" style="float: left;" href="#">Direction</button>
+	  <button class="buttondelivered" style="float: right;" href="#">Delivered</button>
+		-->
+      
+    </li>
+    {% endfor %}
+
+
+  </ul>
+  {% endif %}
+
+  {% if user.vacinated == 0 %}
+  {% for i in listreslev1 %}
+    <li class="cards_item">
+	<form id="form-id" method="post" action="unidel/">
+     
+	
+				  {% csrf_token %}
+                <b>Customer Name:</b><p>{{i.name}}</p>
+			   <input type="hidden" name="custom" value="{{i.pk}}"/>
+			   <p><b>Customer Address:</b></p>
+			   <p>{{i.address1}},</p>
+			   <p>{{i.address2}}</p>
+			   
+			   <p><b>City:</b>{{i.city}}</p>
+			   <p><b>State:</b>{{i.state}}</p>
+			   <p><b>Zipcode:</b>{{i.zipcode}}</p>
+			   <p><b>restriction level is :</b>{{i.reslev}}</p>
+			 <!-- <a href="unidel/" type="text" name="orderername" >press</a>--> 
+			   <button id="bt" type="submit">Pick</button>
+			</form>		
+	  <!--
+	  <button class="buttondirection" style="float: left;" href="#">Direction</button>
+	  <button class="buttondelivered" style="float: right;" href="#">Delivered</button>
+		-->
+
+    </li>
+    {% endfor %}
+
+
+  </ul>
+  {% endif %}
+		<!--
+  }
+	{% for i in lor %}
+	<br>
+	  <p>restriction level is :{{i.restrictionlevel}}</p>
+	<br>
+	{% endfor %}
+	-->
+	<!--
+	{% for i in linkgen1 %}
+	<p>{{i}}</p>
+	{% endfor %}
+	-->
+	<!--
+	{% for i in linkgen2 %}
+	<p>{{i}}</p>
+	{% endfor %}
+	-->
+
+
+</div>
+</div>
+	<!-- https://www.google.co.in/maps/place/lig+colony,+k+k+nagar,+madurai,+tamil+nadu -->
+
+	<!--
+		PRE MADE EXISTING CONTAINER ALREADY MADE CAN BE USED TO CENTER CONTAINERS
+     <div class="container">
+
+     </div>
+	-->
+
+</body>
+<style type="text/css">
+body
+{
+	
+	background: -webkit-linear-gradient(left, rgb(240, 157, 4), rgb(255, 103, 1), rgb(231, 58, 5), rgb(255, 0, 0));
+	background-size: 100%;
+	height: cover;
+}
+.container{
+	width:100%;
+}
+.card_content{
+	width:340px;
+	background-color: aqua;
+	//background:linear-gradient(240deg,rgba(204, 16, 16, 0.753),rgb(255, 255, 255));
+}
+#bt{
+	width:100%;
+	background-color:rgb(248, 248, 248);
+	color:rgb(0, 0, 0);
+	font-size:16px;
+	font-style: bold;
+	border:5px solid #ff981a
+}
+.cards_item {
+	width:340px;
+  display: flex;
+  margin-bottom:20px;
+}
+b{
+	color:#fc3200;
+	
+}
+form{
+	width:340px;
+    background-color:rgb(255, 255, 255);
+	color:#000000;
+	border:5px solid black;
+	padding:5px 5px 5px 5px;
+
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+form hr {
+  border-color: red;
+}
+
+	#nav{
+		background-color:black;
+	}
+	#txt{
+		color:white;
+		font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+	}
+	
+
+	#b{
+		color:black;
+	}
+.buttondirection{
+  background-color: #006BFF; /* Green */
+  border-radius: 15%;
+ 
+}
+
+.buttondirection:hover{
+  transform: scale(1.15);
+}
+.buttondelivered{
+  background-color: #2CFF00; /* Green */
+  border-radius: 15%;
+}
+
+.buttondelivered:hover{
+  transform: scale(1.15);
+}
+
+
+/*
+h1 {
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+}
+*/
+img {
+  height: auto;
+  width: 100%;
+  height:300px;
+  vertical-align: middle;
+}
+
+.btn {
+  color: #ec9191a1;
+  padding: 0.8rem;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  font-weight: 400;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+}
+
+.btn:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.cards {
+	width:100%;
+	//background:linear-gradient(240deg,rgba(192, 25, 25, 0.753),rgb(6, 19, 204));
+	resize:none;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+@media (min-width: 40rem) {
+  .cards_item {
+    width: 50%;
+  }
+}
+
+@media (min-width: 56rem) {
+  .cards_item {
+    width: 33.3333%;
+  }
+}
+
+.card {
+  width:100%;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card_content {
+  padding: 1rem;
+  background: #FFFFFF;
+  border-radius: 10%;
+}
+
+@media (max-width: 480px)
+{ 
+  .cards_item {
+  width:100%;
+  display: flex;
+  padding: 1rem;
+}
+}
+</style>
+</html>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+	<script type="text/javascript" src="{% static 'js/cart.js' %}"></script>

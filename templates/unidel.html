@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+	<head>
+		<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+       <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!--font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <title>DELIVERY ORDER</title>
+	</head>
+	</head>
+    <body>
+
+<nav id="nav" class="navbar navbar-expand-lg">
+	  <a id="txt" class="navbar-brand" href="{% url 'store' %}"><b style="color:#fc3200;">SHOP</b></a>
+	  <button class="navbar-toggler navbar-light bg-warning" type="button" data-toggle="collapse" style="background-color: #FF8F00;" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	    <ul class="navbar-nav mr-auto">
+	      <!--<li class="nav-item active">
+	        <a class="nav-link" href="{% url 'store' %}">Store <span class="sr-only">(current)</span></a>
+	      </li>-->
+	      {% if user.is_authenticated %}
+	      <li class="nav-item active">
+	        <a id="txt" class="nav-link" href="/store/history"><b style="color:#FFFFFF;">History </b><span class="sr-only">(current)</span></a>
+	      </li>
+	 	{% endif %}
+	 	{% if user.is_dboy %}
+	      <li class="nav-item active">
+	        <a id="txt" class="nav-link" href="/store/delivery/"><b style="color:#fc3200;">Delivery </b><span class="sr-only">(current)</span></a>
+	      </li>
+	      <li class="nav-item active">
+	        <a class="nav-link" style="color:#FFFFFF" href="/store/vaccine/">Vaccine Form <span class="sr-only">(current)</span></a>
+	      </li>
+	 	{% endif %}
+	    </ul>
+	    {% if user.is_authenticated %}
+	    <div class="form-inline my-2 my-lg-0">
+	     	<a href="login/"class="btn btn-warning">{{request.user.username}}</a>
+	     	
+	     	<!--
+	     	<a href="{% url 'cart' %}">
+	    		<img  id="cart-icon" src="{% static 'images/cart.png' %}">
+	    	</a>
+	    	<p id="cart-total">{{cartItems}}</p>
+		-->
+
+	    </div>
+	    {% else %}
+	<!-- 
+	cant be accesed without authenticating so no use of this part   
+	    <div class="form-inline my-2 my-lg-0">
+	     	<a href="login/"class="btn btn-warning">Login / Signup</a>
+	     	
+	     	<a href="{% url 'cart' %}">
+	    		<img  id="cart-icon" src="{% static 'images/cart.png' %}">
+	    	</a>
+	    	<p id="cart-total">{{cartItems}}</p>
+
+	    </div>
+	-->
+	    {% endif %}
+	  </div>
+	</nav>
+
+<div class="maincon">
+		<div class="card">
+        {% for i in obj %}
+		       <div class="inner">
+				<div class="inner2">
+					<a href="/delivery"><b style="color:#000000;"><i class="fa fa-arrow-left"></i>BACK</b></a>
+      			<h1 style="text-align:center;color:#FFFFFF;"><u style="color:#FF0000;"><h2 style="color:#000000;">DETAILS</h2></u></h1>
+      			<br>
+              <div class="marginer">
+              <b><i class="fa fa-user" aria-hidden="true"></i>Customer Name:</b>{{i.name}}<p></p>
+              <input type="hidden" name="custom" value="{{i.pk}}"/>
+			   <!--<input type="hidden" name="custom" value="{{i.pk}}" />-->
+			   <p><b><i class="fa fa-phone" aria-hidden="true"></i>Contact No:</b>{{i.contactno}}</p>
+			   <p><b><i class="fa fa-address-card"></i>Customer Address:</b></p>
+			   <p >{{i.address1}},</p>
+			   <p>{{i.address2}}</p>
+			   <p><b><i class="fa fa-building"></i>City:</b>{{i.city}}</p>
+			   <p><b><i class="fa fa-map-pin" aria-hidden="true"></i>Zipcode:</b>{{i.zipcode}}</p>
+			   <p><b><i class="fa fa-money" aria-hidden="true"></i>Amount:</b>₹{{i.quantity}}</p>
+
+			   {% if i.paymode == '1' %}
+			   <p><b>Transaction Method:</b>Cash on Delivery</p>
+			   <p><b>Payment:</b>Pending</p>
+
+			   {% elif i.paymode == '2' %}
+			   <p><b>Transaction Method:</b>Online</p>
+			   <p><b>Payment:</b>Successful</p>
+			   {% endif %}
+
+			   {% if i.reslev == 3 %}
+			   	<b>RISK: <b style="color:#FF0000;">HIGH</b></b>
+			   	<!--<p>->Wear Full complement of PPE</p>-->
+			   	<br>
+			   	<p></p>
+			   	<p><b style="color:#000000;">-></b>Wear Reusable Apron provided<br>
+			   	<b style="color:#000000;">-></b>Use provided N-95 respirator mask<br>
+			   	<b style="color:#000000;">-></b>Wear Face shield, Goggles<br>
+			   	<b style="color:#000000;">-></b>Request user for online payment if available<br>
+			   	<b style="color:#000000;">-></b>Avoid any physical contact with customer or customer surrounding</p>
+			   {% endif %}
+
+			   {% if i.reslev == 2 %}
+			   	<b>RISK: <b style="color:#E0D621;">MEDIUM</b></b>
+			   	<br>
+			   	<p></p>
+			   	<p><b style="color:#000000;">-></b>Wear N-95 Respiratory mask, Gloves, Goggles, Face shield provided
+			   	<br>
+			   	</p>
+			   {% endif %}
+
+			   {% if i.reslev == 1 %}
+			   	<b>RISK: <b style="color:#5AFF00;">LOW</b></b>
+			   	<br>
+			   	<p></p>
+			   	<p><b style="color:#000000;">-></b>Wear Triple layer mask, Gloves, Goggles provided<br>
+			   	</p>
+			   {% endif %}
+
+			   <!--
+			   <p><b>State:</b>{{i.state}}</p>
+			   <p><b>Zipcode:</b>{{i.zipcode}}</p>
+				-->
+				
+				<!--<p>this is hte hsdiui m ujsdj kdaskjhdsfl; kjkeljk dslj dajnfsgkd ajj srlkkl fsjhjsd vklklf sdjkjhgfsd kljljk</p>
+				<p>this is hte hsdiui m ujsdj kdaskjhdsfl; kjkeljk dslj dajnfsgkd ajj srlkkl fsjhjsd vklklf sdjkjhgfsd kljljk</p>
+				<p>this is hte hsdiui m ujsdj kdaskjhdsfl; kjkeljk dslj dajnfsgkd ajj srlkkl fsjhjsd vklklf sdjkjhgfsd kljljk</p>
+				<p>this is hte hsdiui m ujsdj kdaskjhdsfl; kjkeljk dslj dajnfsgkd ajj srlkkl fsjhjsd vklklf sdjkjhgfsd kljljk</p>
+				<p>this is hte hsdiui m ujsdj kdaskjhdsfl; kjkeljk dslj dajnfsgkd ajj srlkkl fsjhjsd vklklf sdjkjhgfsd kljljk</p>
+				<p>this is hte hsdiui m ujsdj kdaskjhdsfl; kjkeljk dslj dajnfsgkd ajj srlkkl fsjhjsd vklklf sdjkjhgfsd kljljk</p>
+				<p>this is hte hsdiui m ujsdj kdaskjhdsfl; kjkeljk dslj dajnfsgkd ajj srlkkl fsjhjsd vklklf sdjkjhgfsd kljljk</p>-->	
+
+			   <p><b><i class="fa fa-exclamation-triangle"  ></i>restriction level is :</b>{{i.reslev}}</p>
+			   
+			</div>
+			   <div class="divbtn">
+				<form action="modifyasdelivered">
+				 <input type="hidden" name="custom" value="{{i.pk}}"/>
+				 <h1><button type="submit" class="btn btn-success">Delivered</button></h1>
+				</form>
+			 
+				 <form action="modifyasfake">
+				 <input type="hidden" name="custom" value="{{i.pk}}"/>
+				 <h1><button type="submit" class="btn btn-warning">Mock Address</button></h1>
+				 </form>
+			 
+			 <form action="modifyasNA">
+			 <input type="hidden" name="custom" value="{{i.pk}}" />
+			 <h1><button type="submit" class="btn btn-danger">Customer Unavailable</button></h1>
+		 </div>
+			 </form>
+			</div>
+			   <iframe src="{{i.omaplink}}" width="600" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+			
+		</div>
+
+        {% endfor %}
+	</div>
+</div>
+    </body>
+
+	<style type="text/css">
+	body{
+		background: -webkit-linear-gradient(left, rgb(240, 157, 4), rgb(255, 103, 1), rgb(231, 58, 5), rgb(255, 0, 0));
+	background-size: 100%;
+	height: cover;
+	
+	
+	}
+
+	#nav{
+		background-color:black;
+	}
+
+	#txt{
+		color:black;
+		font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+	}
+
+	.maincon
+	{
+		display:flex;
+		flex-flow: column;
+		align-items: center;
+		justify-content: center;
+		margin-bottom:2%;
+	}
+	.divbtn{
+		display: flex;
+		flex-flow: row;
+		justify-content: space-between;
+	}
+	.btn{
+		margin:10px 10px 10px 10px;
+		color:black;
+
+	}
+
+	.marginer
+	{
+		margin-left:10%;
+	}
+
+	.card{
+		min-width: 100vh;
+		margin-top:50px;
+		height:auto;
+		color:black;
+		background-color: white;
+		border:10px solid black;
+	}
+	b{
+		color:#FF7700;
+	}
+	.inner{
+		height:auto;
+		display:flex;
+		flex-flow: row;
+		align-items: center;
+		justify-content: center;
+		margin: 0;
+        padding: 0;
+        border: 0;
+		word-wrap: break-word;
+	}
+	.inner2{
+		width:80vh;
+		overflow:auto;
+	}
+
+	@media screen and (max-width: 600px) {
+		.inner{
+		display:flex;
+		flex-flow: column;
+		align-items: center;
+		justify-content: center;
+		margin: 0;
+        padding: 0;
+        border: 0;
+	}
+}
+	</style>
+</html>
+
+<!--
+	DEI USE THIS AS BODY IN STYLE CSS
+	background:linear-gradient(240deg,rgba(192, 25, 25, 0.753),rgb(6, 19, 204));
+	background-size: 100%;
+	height: cover;
+	-->
+
+<!--
+	DEI USE THIS AS BODY IN STYLE CSS
+	background:linear-gradient(240deg,rgba(192, 25, 25, 0.753),rgb(6, 19, 204));
+	background-size: 100%;
+	height: cover;
+	-->
