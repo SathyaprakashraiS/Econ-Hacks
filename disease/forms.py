@@ -8,4 +8,4 @@ class DiseaseForm(forms.ModelForm):
 	"""Form for the image model"""
 	class Meta:
 		model = Diseasetypes
-		fields = ['patient']
+		fields = ['crop']

@@ -12,7 +12,7 @@
 <body>
 
 	<nav id="nav" class="navbar navbar-expand-lg ">
-	  <a id="txt" class="navbar-brand" href="/"><b>ECON AGRO</b></a>
+	  <a id="txt" class="navbar-brand" href="/"><b>DOPE FARM</b></a>
 	  <button class="navbar-toggler navbar-light bg-warning" style="background-color: #FF8F00;" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
@@ -29,7 +29,7 @@
 	        <a id="txt" style="color: #FFFFFF;" class="nav-link" href="/store/">STORE <span class="sr-only">(current)</span></a>
 	      </li>
 	      <li class="nav-item active">
-	        <a id="txt" style="color: #FF8F00;" class="nav-link" href="/store/">DISEASE <span class="sr-only">(current)</span></a>
+	        <a id="txt" style="color: #3aff09;" class="nav-link" href="/store/">DISEASE <span class="sr-only">(current)</span></a>
 	      </li>
 	    </ul>
 	    {% if user.is_authenticated %}
@@ -41,19 +41,14 @@
 	  </div>
 	</nav>
 
-<h1 style="text-align:center;"><b style="color:black;">DISEASE</b></h1>
+<h1 style="text-align:center;"><b style="color:black;">DISEASE TRACKER</b></h1>
 <form id="form-id" method="post" action="diseaseans/">
     {% csrf_token %}
     {{ form.as_p }}
     <label for="symptom">What are the symptoms? </label><br>
-    <input type="symptom" id="symptom" name="symptom"><br><br>
-         <!-- <p><b> sub Name:</b>{{i.mockpapername}}</p>
-         <input type="hidden" name="mockname" value="{{i.pk}}"/></p><hr>
-         <p><b> description:</b>{{i.paperdescription}}</p>
-         <p><b> std:</b>{{i.mpgrade}}</p>
-         <p><b> Marks:</b>{{i.totalmarks}}</p>
-         -->
-         <button id="bt" type="submit">CHECK</button>
+    <input type="symptom" id="symptom" name="symptom">
+
+    <button id="bt" type="submit">CHECK</button>
       </form>
 
 <style type="text/css">
@@ -62,62 +57,36 @@ body
 	background: -webkit-linear-gradient(left, rgb(34, 189, 3), rgb(41, 122, 3), rgb(114, 231, 5), rgb(7, 202, 111));
 	height: cover;
 }
-	.newscontainer
-	{
-		display: flex;
-		flex-wrap: wrap;
-		list-style: none;
-	}
-	.newscard
-	{
-		width:30%;
-		padding-top: 0%;
-		grid-template-columns: auto auto auto auto;
-		justify-content: space-evenly;
-		padding-right: 1%;
-		padding-bottom: 0%;
-		padding-left: 1%;
-		margin-left:3%;
-		margin-right:0%;
-		margin-top:0%;
-		margin-bottom:5%;
-		background-color:#FFFFFF;
-		border-radius:4%;
-		height:440px;
-	}
 
-	.newsimg
-	{
-		height: 350px;
-		width: 100%;
-		margin-top:3%;
-		transition: transform .2s;
-	}
+form{
+	display: flex;
+	width:30%;
+	height:60vh;
+	margin-left:35%;
+	background:black;
+	color:white;
+	flex-direction: column;
+	align-items: center;
 
-	.newsimg:hover
-	{
-		transform: scale(1.1);
-	}
+}
+form > input{
+	border-radius: 20px;;
+}
+form > button{
+  margin-top:20px;
+  width:80px;
+  height:40px;
+  background: tomato;
+  color:black;
+  border-radius: 20px;;
 
-	#nav{
-		background-color:black;
-	}
-	#txt{
-		color:black;
-		font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
-	}
 
-	.inner{
-		width:400px;
-		margin-top:20px;
-		display:flex;
-		border:5px solid black;
-		flex-flow: column;
-		align-items: center;
-		
-	}
+  border: none;
+}
 	
-
+nav{
+	background: black;
+}
 	#navbar-toggler
 	{
 		background-color: #4CAF50; /* Green */
@@ -152,7 +121,7 @@ body
 	margin-left:32%;
 }
 	b{
-		color:#fc3200;
+		color:#50fc00;
 	}
 
 </style>

@@ -12,7 +12,7 @@
 <body>
 
 	<nav id="nav" class="navbar navbar-expand-lg ">
-	  <a id="txt" class="navbar-brand" href="/"><b>ECON AGRO</b></a>
+	  <a id="txt" class="navbar-brand" href="/"><b>DOPE FARM</b></a>
 	  <button class="navbar-toggler navbar-light bg-warning" style="background-color: #FF8F00;" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
@@ -29,7 +29,7 @@
 	        <a id="txt" style="color: #FFFFFF;" class="nav-link" href="/store/">STORE <span class="sr-only">(current)</span></a>
 	      </li>
 	      <li class="nav-item active">
-	        <a id="txt" style="color: #FF8F00;" class="nav-link" href="/store/">DISEASE <span class="sr-only">(current)</span></a>
+	        <a id="txt" style="color: #00ff2a;" class="nav-link" href="/store/">DISEASE <span class="sr-only">(current)</span></a>
 	      </li>
 	    </ul>
 	    {% if user.is_authenticated %}
@@ -41,13 +41,18 @@
 	  </div>
 	</nav>
 
+<div class="dis">
+
 <h1 style="text-align:center;"><b style="color:black;">DISEASE</b></h1>
 {% for i in suspect %}
-	<p>{{i.dname}}</p>
-	<p>{{i.symptoms}}</p>
-	<p>{{i.patient}}</p>
-{% endfor %}
 
+	<b>DISEASE NAME:</b><p>{{i.dname}}</p>
+	<b>SYMPTOMS:</b><p>{{i.symptoms}}</p>
+
+	<b>PATIENT:</b><p>{{i.patient}}</p>
+{% endfor %}
+</div>
+</body>
 <style type="text/css">
 body
 {
@@ -55,43 +60,23 @@ body
 	background-size: 100%;
 	height: cover;
 }
-	.newscontainer
-	{
-		display: flex;
-		flex-wrap: wrap;
-		list-style: none;
-	}
-	.newscard
-	{
-		width:30%;
-		padding-top: 0%;
-		grid-template-columns: auto auto auto auto;
-		justify-content: space-evenly;
-		padding-right: 1%;
-		padding-bottom: 0%;
-		padding-left: 1%;
-		margin-left:3%;
-		margin-right:0%;
-		margin-top:0%;
-		margin-bottom:5%;
-		background-color:#FFFFFF;
-		border-radius:4%;
-		height:440px;
-	}
 
-	.newsimg
-	{
-		height: 350px;
-		width: 100%;
-		margin-top:3%;
-		transition: transform .2s;
-	}
+.dis > p{
+	font-size: 20px;
+	color:white;
+}
 
-	.newsimg:hover
-	{
-		transform: scale(1.1);
-	}
+.dis{
+	width:60%;
+	height:80vh;
+	background: darkolivegreen;
+	margin-left: 20%;
+	display: flex;
+	flex-direction: column;
+	padding:20px 20px 20px 20px;
 
+}
+	
 	#nav{
 		background-color:black;
 	}
@@ -123,29 +108,9 @@ body
   font-size: 16px;
 	}
 
-.mainform
-{
-	margin-top: 10%;
-}
 
-.centerform {
-	padding-top: 10px;
-	padding-bottom: 10px;
-  width:80%;
-  height:80%;
-  margin: auto;
-  background: white;
-  color: orange;
-  border:5px solid black;
-  /*padding: 10px;*/
-  border-radius: 0%;
-	}
-.formcontent
-{
-	margin-left:32%;
-}
 	b{
-		color:#fc3200;
+		color:#08fc00;
 	}
 
 </style>

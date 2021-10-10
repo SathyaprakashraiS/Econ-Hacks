@@ -15,7 +15,7 @@ from re import search
 
 # Create your views here.
 def disease(request):
-	form=DiseaseForm(request.POST)
+	form=DiseaseForm()
 	patientname=Patientname.objects.all()
 	context={
 		'form':form,'patientname':patientname

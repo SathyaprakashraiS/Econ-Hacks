@@ -1,0 +1,347 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+       <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!--font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <title>ECON AGRO</title>
+  </head>
+  <body>
+  <link rel='stylesheet'  href="{% static 'CSS\master.css' %}">
+  <!--NAV BAR-->
+ <nav id="nav" class="navbar navbar-expand-lg ">
+    <a id="txt" class="navbar-brand" href="/"><b>ECON AGRO</b></a>
+    <button class="navbar-toggler navbar-light bg-warning" style="background-color: #FF8F00;" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a id="txt" style="color: #FFFFFF;" class="nav-link" href="/news/">NEWS <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a id="txt" style="color: #FFFFFF;" class="nav-link" href="/tips/">TIPS <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a id="txt" style="color: #FFFFFF;" class="nav-link" href="/store/">STORE <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a id="txt" style="color: #FF8F00;" class="nav-link" href="/disease/">DISEASE <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+      {% if user.is_authenticated %}
+      <div class="form-inline my-2 my-lg-0">
+        <a href="#"class="btn btn-warning">{{request.user.username}}</a>
+      </div>
+      {% else %}
+      {% endif %}
+    </div>
+  </nav>
+<!--NAV BAR-->
+<!--
+  <div class="container my-4 w-90">
+    
+    <div id="carousel" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'images/DIET5.jpg' %}" class="d-block w-75" alt="OOPS ERROR">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/DIET6.jpg' %}" class="d-block w-75" alt="OOPS ERROR">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/DIET7.jpg' %}" class="d-block w-75" alt="OOPS ERROR">
+    </div>
+  </div>
+</div>
+    
+    </div>
+-->
+<div id="demo" class="carousel slide  w3-animate-left" data-ride="carousel">
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+    <li data-target="#demo" data-slide-to="3"></li>
+    <li data-target="#demo" data-slide-to="4"></li>
+    <li data-target="#demo" data-slide-to="5"></li>
+  </ul>
+<div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'images/TEST2.jpg' %}" class="responsive"  width="1500" height="800"alt="OOPS IMAGE ERROR">
+      <div class="carousel-caption">
+        <h3><b>LARGEST EMPLOYER</b></h3>
+        <p style="font-size:;"><b>Agriculture is the largest employer in the world</b></p>
+      </div>   
+    </div>
+<div class="carousel-item">
+      <img src="{% static 'images/TEST4.jpg' %}" class="responsive" width="1500" height="800"alt="OOPS IMAGE ERROR">
+      <div class="carousel-caption">
+        <h3><b>PRODUCER AND EXPORTER</b></h3>
+        <p style="font-size:;"><b>India is the 2nd largest agricultural producer and 7th largest exporter of agricultural goods</b></p>
+      </div>   
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/TEST5.jpg' %}" class="responsive"  width="1500" height="500"alt="OOPS IMAGE ERROR">
+      <div class="carousel-caption">
+        <h3><b>THE NEED</b></h3>
+        <p style="font-size:;"><b>Farmers need to produce 70% more food than today to feed the world’s growing population by 2050</b></p>
+      </div>   
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/TEST6.jpg' %}" class="responsive"  width="1500" height="500"alt="OOPS IMAGE ERROR">
+      <div class="carousel-caption">
+        <h3><b>SUSTAINABLE AGRICULTURE</b></h3>
+        <p style="font-size:;"><b>Organic farming is not the sustainable model of Indian agriculture</b></p>
+      </div>   
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/TEST3.jpg' %}" class="responsive"  width="1500" height="500"alt="OOPS IMAGE ERROR">
+      <div class="carousel-caption">
+        <h3><b>IN VARIETY</b></h3>
+        <p style="font-size:;"><b>More than 6000 varieties of apple are grown around the world</b></p>
+      </div>   
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/TEST1.jfif' %}" class="responsive"  width="1500" height="500"alt="OOPS IMAGE ERROR">
+      <div class="carousel-caption">
+        <h3><b>MAEEE...</b></h3>
+        <p style="font-size:;"><b> Goats were the first animal to be domesticated</b></p>
+      </div>   
+    </div>
+  </div>  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+    <br>
+    <h1 style="text-align:center;">ADDING GREEN TO YOUR LIFE</h1><br>
+
+<p style="font-size:100%;text-align:center;font-family:'Lucida Console', 'Courier New', monospace;">As a farmer, I am simple outstanding in my field.
+Be Natural.
+Be Today. Be Nature.
+Been There, Herd That.
+Bringing growth to agriculture.
+Bringing growth, ingenuity, and experience to market.
+Clean, Green, Farming Machines.
+Connecting energy markets.
+Connecting Green Betters.
+Conserving, Improving nature.
+Count on it.</p>
+
+<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:50px">
+  <h1 style="text-align:center;">TOP FEED</h1><br>
+  <div class="w3-row-padding w3-padding-16 w3-center">
+    <div class="w3-quarter">
+      <img src="{% static 'images/FEED1.jfif'%}" alt="Sandwich" style="width:100%">
+      <a style="color:#000000;" href="https://timesofindia.indiatimes.com/life-style/food-news/how-to-make-street-style-kathi-roll-in-three-different-ways/photostory/81590058.cms"><h3><b>How to make street style Kathi Roll in three different ways</b></h3></a>
+      <p>Fond of street-style Kathi rolls with crispy exterior,and a roll stuffed with your favourite stuffing?</p>
+    </div>
+    <div class="w3-quarter">
+      <img src="{% static 'images/FEED2.jpg'%}" alt="Steak" style="width:100%">
+      <a style="color:#000000;" href="https://timesofindia.indiatimes.com/life-style/food-news/10-low-calorie-foods-that-are-good-for-weight-loss/photostory/81569900.cms"><h3><b>10 Low-calorie foods</b></h3></a>
+      <p>confused about ‘what to eat’ and ‘what not to eat’ Lets clear your Doubt!</p>
+    </div>
+    <div class="w3-quarter">
+      <img src="{% static 'images/FEED3.jpg'%}" alt="Cherries" style="width:100%">
+      <a style="color:#000000;" href="https://timesofindia.indiatimes.com/life-style/food-news/easy-ways-to-incorporate-healthy-food-in-your-life/photostory/81551307.cms"><h3><b>Easy ways to incorporate healthy food in your life</b></h3></a>
+      <p>How to add healthy food to daily diet?</p>
+      <p>​Stick to homemade food</p>
+    </div>
+    <div class="w3-quarter">
+      <img src="{% static 'images/FEED4.jpg'%}" alt="Pasta and Wine" style="width:100%">
+      <a style="color:#000000;" href="https://timesofindia.indiatimes.com/life-style/food-news/make-4-different-dishes-with-this-one-basic-gravy/photostory/81551084.cms"><h3><b>Make 4 different dishes with this one basic gravy</b></h3></a>
+      <p>Soya Masala,Matar Paneer,Mushroom Matar etc</p>
+    </div>
+  </div>
+  <div class="w3-row-padding w3-padding-16 w3-center">
+    <div class="w3-quarter">
+      <img src="{% static 'images/FEED5.jpeg'%}" alt="Popsicle" style="width:100%">
+      <a style="color:#000000;" href="https://timesofindia.indiatimes.com/life-style/food-news/this-cool-salt-and-pepper-hack-will-leave-you-surprised/articleshow/81533127.cms"><h3><b>This cool salt and pepper hack will leave you surprised</b></h3></a>
+      <p>Cooking is an art and use of ingredients at the right time Tops it!</p>
+    </div>
+    <div class="w3-quarter">
+      <img src="{% static 'images/FEED6.jpg'%}" alt="Salmon" style="width:100%">
+      <a style="color:#000000;" href="https://timesofindia.indiatimes.com/life-style/food-news/easy-desserts-to-make-with-spoiled-milk/photostory/81528111.cms"><h3><b>Easy desserts to make with spoiled milk</b></h3></a>
+      <p>Has it ever happened to you that the milk starts curdling? No worries we'll make a Desert!</p>
+    </div>
+    <div class="w3-quarter">
+      <img src="{% static 'images/FEED7.png'%}" alt="Sandwich" style="width:100%">
+      <a style="color:#000000;" href="https://timesofindia.indiatimes.com/life-style/food-news/these-food-items-can-help-you-reduce-bloating/articleshow/81533519.cms"><h3><b>These food items can help you reduce bloating</b></h3></a>
+      <p>Avoid Bloating simply and easy steps.</p>
+    </div>
+    <div class="w3-quarter">
+      <img src="{% static 'images/FEED8.jpg'%}" alt="Croissant" style="width:100%">
+      <a style="color:#000000;" href="https://www.medicalnewstoday.com/articles/foods-that-lower-cholesterol"><h3><b>15 foods that lower cholesterol</b></h3></a>
+      <p>A person’s diet plays a crucial role in how healthy their cholesterol levels are so know how to maintain them</p>
+    </div>
+  </div>
+</div>
+  <div>
+
+  </div>
+
+
+  <!-- <div class="w3-container w3-padding-32 w3-center"style="max-width:100%;margin-top:50px">  
+    <h3>About Us, The Dope Team</h3><br>
+    <div class="w3-padding-32 max-width">
+      <h4><b>Who are "WE" !</b></h4>
+      <h6><i>Team of Enthusiast and Future Achievers</i></h6><br>
+      <h4><b>Why Dope Meal ?</b></h4>
+      <p><i>In this modern fast pased world who has dedicated time to plan thier meal and stick to thier diet? NO WORIES we are here to back you up with a MEAL PLANNING TOOL which has well optimised Food results. Just a free platform to get a meal plan for your day, Pick your favorite food from the food result ,dont know how to make it? Dont worry we still back you up with Dopecookery books and also with Dietbooks ,Missing some kitchen equipments we got you Covered DOPESTOP Find BEST and CHEAP appliances for you Kitchen :)</i></p>
+    </div>
+  </div> -->
+
+
+  
+
+</body>
+<style type="text/css">
+   /*body {
+      background: #FFFFFF !important;
+       } */
+   #carousel{
+     padding:30px;
+    
+   }
+   #nav{
+    background-color:black;
+  }
+   #menu {
+    position: absolute;
+    top:20px;
+    right: 0px;
+}
+   .container{
+     padding-top: 20px;
+    padding-right: 5px;
+    padding-bottom: 20px;
+    padding-left: 200px;
+
+   }
+
+   .responsive
+   {
+    width:100%;
+    height:700px;
+   }
+   @media (max-width: 1199.98px) 
+   {
+    .responsive
+   {
+    width:100%;
+    height:400px;
+   }
+   }
+   .cards-list {
+  z-index: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin: 30px auto;
+  width: 300px;
+  height: 300px;
+  border-radius: 40px;
+box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.card .card_image {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+}
+
+.card .card_image img {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+  object-fit: cover;
+}
+
+.card .card_title {
+  text-align: center;
+  border-radius: 0px 0px 40px 40px;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 120%;
+  margin-top: -80px;
+  height: 40px;
+}
+
+.card:hover {
+  transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+    -5px -5px 30px 15px rgba(0,0,0,0.22);
+}
+
+.title-white {
+  color: white;
+}
+
+.title-black {
+  color: black;
+}
+@media all and (max-width: 500px)
+{
+  .card-list
+  {
+    flex-direction: column;
+  }
+}
+.food
+{
+
+}
+</style>
+
+   <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script>
+    var i = 0;
+    var txt = 'Lorem ipsum dummy text blabla.';
+    var speed = 50;
+
+    function typeWriter()
+    {
+      if (i < txt.length)
+      {
+        document.getElementById("demo").innerHTML += txt.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+
+
+
+
+
