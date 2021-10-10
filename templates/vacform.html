@@ -35,7 +35,7 @@
 	        <a id="txt" class="nav-link" href="/store/delivery/" style="color:#FFFFFF">Delivery <span class="sr-only">(current)</span></a>
 	      </li>
 	      <li class="nav-item active">
-	        <a id="txt" class="nav-link" href="/store/vaccine/" style="color:#FFFFFF"><b>Vaccine Form </b><span class="sr-only">(current)</span></a>
+	        <a id="txt" class="nav-link" href="/vaccine/" style="color:#FFFFFF"><b>Vaccine Form </b><span class="sr-only">(current)</span></a>
 	      </li>
 	 	{% endif %}
 	    </ul>
@@ -95,13 +95,24 @@
 				<!--{{ form.as_p }}-->
 				
 				<div class="formcontent">
-					<label for="name"><b>NAME:</b></label>
+					<!-- <label for="name"><b>NAME:</b></label>
 					<input type="text" id="name" name="name" value="{{request.user.username}}" readonly><br>
-					<label for="vacday"><b>DAY WHEN YOU WERE VACCINATED:</b></label>{{form.vacday}}
+					<label for="vacday"><b>DAY WHEN YOU WERE VACCINATED:[format:dd/mm/yyyy]</b></label>{{form.vacday}}
 					<br>
 					<label for="dosecount"><b>DOSES VACCINATED:</b></label>{{form.dosecount}}
 					<br>
 					<label for="prooffile"><b>VACCINATION CERTIFICATE:</b></label>{{form.prooffile}}
+					<br> -->
+					<label for="name"><b>NAME:</b></label>
+					<input type="text" id="name" name="name" value="{{request.user.username}}" readonly><br>
+					<label for="vacday"><b>DAY WHEN YOU WERE LAST VACCINATED:</b></label>
+					<input type="date" id="vacday" name="vacday"><br>
+					<br>
+					<label for="dosecount"><b>TOTAL DOSES VACCINATED:</b></label>
+					<input type="number" id="dosecount" name="dosecount"><br>
+					<br>
+					<label for="prooffile"><b>VACCINATION PROOF CERTIFICATE:</b></label>
+					<input type="file" id="prooffile" name="prooffile"><br>
 					<br>
 					<button style="color:orange;background-color:white;"type="submit">SUBMIT</button>
 				</div>

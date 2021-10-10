@@ -7,9 +7,11 @@ def vacform(request):
 	if request.method == 'POST':
 		form = VacForm(request.POST,request.FILES)
 		if form.is_valid():
-			user.formsubmitted.update(formsubmitted=True)
+			#user.formsubmitted.update(formsubmitted=True)
+			print("here")
 			form.save()
-			return render(request, 'main.html', {'form': form})
+			messages.success(request, "Thank you! Your Vaccine form is submitted is pending for approval!")
+			return HttpResponseRedirect('/')
 	else:
 		form = VacForm()
 

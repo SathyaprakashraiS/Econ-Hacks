@@ -23,7 +23,7 @@ urlpatterns = [
     path('cropmap/',include('cropmap.urls')),
     path('delivery/',include('deliveryperson.urls')),
     path('accounts/', include('allauth.urls')),
-    path('store/vaccine/',include('vaccine.urls')),
+    path('vaccine/',include('vaccine.urls')),
     path('',include("django.contrib.auth.urls")),
     path('', include('main.urls')),
     path('store/', include('store.urls')),
