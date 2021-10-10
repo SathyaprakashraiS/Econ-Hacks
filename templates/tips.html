@@ -12,42 +12,43 @@
 <body>
 
 	<nav id="nav" class="navbar navbar-expand-lg ">
-	  <a id="txt" class="navbar-brand" href="/"><b style="color:greenyellow;">DOPE FARM</b></a>
-	  <button class="navbar-toggler navbar-light bg-warning" style="background-color: #FF8F00;" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	    <span class="navbar-toggler-icon"></span>
-	  </button>
+    <a id="txt" class="navbar-brand" href="/"><b style="color:#32F700;">ECON AGRO</b></a>
+    <button class="navbar-toggler navbar-light bg-warning" style="background-color: #FF8F00;" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	    <ul class="navbar-nav mr-auto">
-	      <li class="nav-item active">
-	        <a id="txt" style="color: #FFFFFF;" class="nav-link" href="/news/">NEWS <span class="sr-only">(current)</span></a>
-	      </li>
-	      <li class="nav-item active">
-	        <a id="txt" style="color: #15ff00;" class="nav-link" href="/tips/">TIPS <span class="sr-only">(current)</span></a>
-	      </li>
-	      <li class="nav-item active">
-	        <a id="txt" style="color: #FFFFFF;" class="nav-link" href="/store/">STORE <span class="sr-only">(current)</span></a>
-	      </li>
-	      <li class="nav-item active">
-	        <a id="txt" style="color: #FFFFFF;" class="nav-link" href="/disease/">DISEASE <span class="sr-only">(current)</span></a>
-	      </li>
-	    </ul>
-	    {% if user.is_authenticated %}
-	    <div class="form-inline my-2 my-lg-0">
-	     	<a href="#"class="btn btn-warning">{{request.user.username}}</a>
-	    </div>
-	    {% else %}
-	    {% endif %}
-	  </div>
-	</nav>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a id="txt" style="color: #000000;" class="nav-link" href="/news/">NEWS <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a id="txt" style="color: #000000;" class="nav-link" href="/tips/"><b>TIPS </b><span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a id="txt" style="color: #000000;" class="nav-link" href="/store/">STORE <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a id="txt" style="color: #000000;" class="nav-link" href="/disease/">DISEASE <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+      {% if user.is_authenticated %}
+      <div class="form-inline my-2 my-lg-0">
+        <a href="#"class="btn btn-warning">{{request.user.username}}</a>
+      </div>
+      {% else %}
+      {% endif %}
+    </div>
+  </nav>
+
 <div class="tips">
-<h1 style="text-align:center;"><b style="color:black;">TIPS</b></h1>
-<p>India is and has been a "Krishi Pradhan" country. We have been blessed with some of the best farmers responsible for the bread and butter we get on our plates. More and more people are coming to terms with investing in organic farming and agriculture business but get confused with the process.
+<h1 style="text-align:center;font-family: 'Trebuchet MS', sans-serif;"><b style="color:black;">TIPS</b></h1>
+<p style="font-family: 'Trebuchet MS', sans-serif;">India is and has been a "Krishi Pradhan" country. We have been blessed with some of the best farmers responsible for the bread and butter we get on our plates. More and more people are coming to terms with investing in organic farming and agriculture business but get confused with the process.
 
 Farming as a profession is a venture that even corporate traders are considering as a career option. Even a beginner in farming can generate a good amount of revenue by following these basic steps. Read on for understanding profitability in the organic farming sector.
 </p>
 
-<p>
+<p style="font-family: 'Trebuchet MS', sans-serif;">
 <b>1- Communicate With Farmers</b><br>
 The best way to get an insight knowledge on mixed farming and Kisan agriculture related stuff are to speak with the experts. Their years and decades of experience passing through generations have provided them with ample examples of the weather conditions, materials, types of equipment, and fertilisers that'll work best. Your local farmers will help you out with distribution patterns, get resources, and occasionally put you in touch with trusted vendors to give a kickstart to your business.
 
@@ -157,9 +158,9 @@ India is the only country in the world that offers four seasons i.e. Summer, Mon
 If you are an urban person who hasn't had much luck in the village-oriented agriculture business then do not hold back. Making mistakes is a part and parcel of every venture. Understand, improvise, and overcome your obstacles to make your agriculture and organic farming successful.
 </p>
 
-<h1 style="margin-left:45%;">FAQs</h1>
+<h1 style="margin-left:45%;font-family: 'Trebuchet MS', sans-serif;">FAQs</h1>
 <div class="faq">
-<b>Q. How do I start my own agricultural business?</b>
+<b>Q1. How do I start my own agricultural business?</b>
 <p><b>Ans-</b>These are the important requirements answering the question of how to start your own Agribusiness:
 
 Researching your Market
@@ -172,7 +173,7 @@ Finish final formalities & arrangements
 </p>
 </div>
 <div class="faq">
-<b>Q. Which agriculture is most profitable?</b>
+<b>Q2. Which agriculture is most profitable?</b>
 <p><b>Ans-</b>These are the top 10 Most Profitable Livestock Farming Business Ideas:
 
 Hydroponic Retail Store
@@ -187,7 +188,7 @@ Organic Farm Green House
 </p>
 </div>
 <div class="faq">
-<b>Q. How do I start a small profitable farm?</b>
+<b>Q3. How do I start a small profitable farm?</b>
 <p><b>Ans- </b>These are some of the essential farming tips for beginners:
 
 Impeccable Market Research
@@ -200,7 +201,7 @@ Get Additional Knowledge
 </p>
 </div>
 <div class="faq">
-<b>Q. What is the most profitable crop for small farm?</b>
+<b>Q4. What is the most profitable crop for small farm?</b>
 <p><b>Ans- </b>These are some of the best Cash Crops for Small Farm Profit:
 
 Christmas Trees
@@ -211,7 +212,7 @@ Lavender
 </p>
 </div>
 <div class="faq">
-<b>Q. What are the 4 types of agriculture?</b>
+<b>Q5. What are the 4 types of agriculture?</b>
 <p><b>Ans- </b>These are the types of agriculture prominent in India:
 
 Mediterranean Agriculture
@@ -223,7 +224,7 @@ Commercial Plantations
 </p>
 </div>
 <div class="faq">
-<b>Q. What is the easiest crop to farm?</b>
+<b>Q6. What is the easiest crop to farm?</b>
 <p><b>Ans- </b>These are some of the easy crops to grow from seed:
 
 Lettuce
@@ -237,7 +238,7 @@ Pumpkins and other Winter Squash
 </p>
 </div>
 <div class="faq">
-<b>Q. Which are the most profitable plants to grow?</b>
+<b>Q7. Which are the most profitable plants to grow?</b>
 <p><b>Ans- </b>Below is a list of some of the most profitable plants to grow:
 
 Flowers
@@ -251,7 +252,7 @@ Trees & Shrubs landscaping
 </p>
 </div>
 <div class="faq">
-<b>Q. Is agriculture a good investment?</b>
+<b>Q8. Is agriculture a good investment?</b>
 <p><b>Ans- </b>Yes. Agricultural investments are income-producing asset. They provide a hedge against inflation and is looked upon as a diversified portfolio. It's not relevant to the stock market and produces solid returns compared to other market assets.
 </p>
 <b>Q. Which vegetable farming is more profitable?</b>
@@ -259,7 +260,7 @@ Trees & Shrubs landscaping
 </p>
 </div>
 <div class="faq">
-<b>Q. What are 3 major areas of agriculture?</b>
+<b>Q9. What are 3 major areas of agriculture?</b>
 <p><b>Ans- </b>The major areas of agriculture are:
 
 Agricultural Sciences
@@ -268,7 +269,7 @@ Agricultural Technology and Management
 </p>
 </div>
 <div class="faq">
-<b>Q. What are the major types of farming?</b>
+<b>Q10. What are the major types of farming?</b>
 <p><b>Ans- </b>There are 8 major types of farming in India:
 </p>
 Mixed and Multiple Agriculture
@@ -282,7 +283,7 @@ Plantation Agriculture
 </p>
 </div>
 <div class="faq">
-<b>Q. What are the easiest farm animals to raise?</b>
+<b>Q11. What are the easiest farm animals to raise?</b>
 <p><b>Ans- </b>These are some of the best livestock raising that can ensure good profits:
 
 Pigs
@@ -294,12 +295,12 @@ Honeybees
 </p>
 </div>
 <div class="faq">
-<b>Q. Is agriculture good for Career?</b>
+<b>Q12. Is agriculture good for Career?</b>
 <p><b>Ans- </b>Agriculture is a good source of employment across the country. It is one of the largest industries in the world and plays a vital role in the growth of the Indian economy. It promotes the quality of food and farming practices, hence, promoting, agricultural-food industry.
 </p>
 </div>
 <div class="faq">
-<b>Q. What is the hardest crop to grow?</b>
+<b>Q13. What is the hardest crop to grow?</b>
 <p><b>Ans- </b>Wasabi is the hardest crop to grow. If the nutrient composition isn't intact or the weather comprises of too much humidity, the cultivation could be damaged. Wasabi is very susceptible to bugs and diseases when grown on larger scales.
 </p>
 </div>
@@ -320,15 +321,24 @@ body
 .faq{
 	display:flex;
 	flex-direction: column;
-	background:rgb(2, 54, 24);
-	color:white;
+	/*background:rgb(2, 54, 24);*/
+  background-color: white;
+	color:black;
 	font-family: 'Times New Roman', Times, serif;
 	font-size: 20px;
+  border: 3px solid black;
 	border-radius:10px;
 	padding:10px 10px 10px 10px;
 	margin-bottom:10px;
+  font-family: 'Trebuchet MS', sans-serif;
+  width:90%;
+  margin-left:5%;
 
+}
 
+.faq:hover
+{
+  transform: scale(1.01);
 }
 
 .tips{
@@ -339,7 +349,8 @@ body
 	font-size: 20px;
 }
 	#nav{
-		background-color:black;
+		background-color:white;
+    font-family: 'Trebuchet MS', sans-serif;
 	}
 	#txt{
 		color:black;

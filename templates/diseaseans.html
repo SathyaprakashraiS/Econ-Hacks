@@ -12,34 +12,34 @@
 <body>
 
 	<nav id="nav" class="navbar navbar-expand-lg ">
-	  <a id="txt" class="navbar-brand" href="/"><b>DOPE FARM</b></a>
-	  <button class="navbar-toggler navbar-light bg-warning" style="background-color: #FF8F00;" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	    <span class="navbar-toggler-icon"></span>
-	  </button>
+    <a id="txt" class="navbar-brand" href="/"><b style="color:#32F700;">ECON AGRO</b></a>
+    <button class="navbar-toggler navbar-light bg-warning" style="background-color: #FF8F00;" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	    <ul class="navbar-nav mr-auto">
-	      <li class="nav-item active">
-	        <a id="txt" style="color: #FFFFFF;" class="nav-link" href="/news/">NEWS <span class="sr-only">(current)</span></a>
-	      </li>
-	      <li class="nav-item active">
-	        <a id="txt" style="color: #FFFFFF;" class="nav-link" href="/tips/">TIPS <span class="sr-only">(current)</span></a>
-	      </li>
-	      <li class="nav-item active">
-	        <a id="txt" style="color: #FFFFFF;" class="nav-link" href="/store/">STORE <span class="sr-only">(current)</span></a>
-	      </li>
-	      <li class="nav-item active">
-	        <a id="txt" style="color: #00ff2a;" class="nav-link" href="/store/">DISEASE <span class="sr-only">(current)</span></a>
-	      </li>
-	    </ul>
-	    {% if user.is_authenticated %}
-	    <div class="form-inline my-2 my-lg-0">
-	     	<a href="#"class="btn btn-warning">{{request.user.username}}</a>
-	    </div>
-	    {% else %}
-	    {% endif %}
-	  </div>
-	</nav>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a id="txt" style="color: #000000;" class="nav-link" href="/news/">NEWS <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a id="txt" style="color: #000000;" class="nav-link" href="/tips/">TIPS <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a id="txt" style="color: #000000;" class="nav-link" href="/store/">STORE <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a id="txt" style="color: #000000;" class="nav-link" href="/disease/"><b>DISEASE </b><span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+      {% if user.is_authenticated %}
+      <div class="form-inline my-2 my-lg-0">
+        <a href="#"class="btn btn-warning">{{request.user.username}}</a>
+      </div>
+      {% else %}
+      {% endif %}
+    </div>
+  </nav>
 
 <div class="dis">
 
@@ -49,7 +49,7 @@
 	<b>DISEASE NAME:</b><p>{{i.dname}}</p>
 	<b>SYMPTOMS:</b><p>{{i.symptoms}}</p>
 
-	<b>PATIENT:</b><p>{{i.patient}}</p>
+	<b>PATIENT:</b><p>{{i.crop}}</p>
 {% endfor %}
 </div>
 </body>
@@ -78,7 +78,8 @@ body
 }
 	
 	#nav{
-		background-color:black;
+		background-color:white;
+		font-family: 'Trebuchet MS', sans-serif;
 	}
 	#txt{
 		color:black;

@@ -64,7 +64,7 @@
 <body>
 
 	<nav id="nav" class="navbar navbar-expand-lg  ">
-	  <a id="txt"class="navbar-brand" href="/"><b style="color:#2eee08">DOPE FARM</b></a>
+	  <a id="txt"class="navbar-brand" href="/"><b style="color:#32F700;">ECON AGRO</b></a>
 	  <button class="navbar-toggler navbar-light bg-warning" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
@@ -75,33 +75,33 @@
 	        <a class="nav-link" href="{% url 'store' %}">Store <span class="sr-only">(current)</span></a>
 	      </li>-->
 	      <li class="nav-item active">
-	        <a class="nav-link" style="color:#09d314" href="/store/">SHOP <span class="sr-only">(current)</span></a>
+	        <a class="nav-link" style="color:#000000" href="/store/"><b>STORE </b><span class="sr-only">(current)</span></a>
 	      </li>
 	      {% if user.is_authenticated %}
 	      <li class="nav-item active">
-	        <a class="nav-link" style="color:#FFFFFF" href="/store/history/">History <span class="sr-only">(current)</span></a>
+	        <a class="nav-link" style="color:#000000" href="/store/history/">HISTORY <span class="sr-only">(current)</span></a>
 	      </li>
 	 	{% endif %}
 	 	{% if user.is_dboy %}
 	      <li class="nav-item active">
-	        <a class="nav-link" style="color:#FFFFFF" href="/delivery/">Delivery <span class="sr-only">(current)</span></a>
+	        <a class="nav-link" style="color:#000000" href="/delivery/">DELIVERY <span class="sr-only">(current)</span></a>
 	      </li>
 	      <li class="nav-item active">
-	        <a class="nav-link" style="color:#FFFFFF" href="/vaccine/">Vaccine Form <span class="sr-only">(current)</span></a>
+	        <a class="nav-link" style="color:#000000" href="/vaccine/">VACCINE FORM <span class="sr-only">(current)</span></a>
 	      </li>
 	 	{% endif %}
 	 	{% if user.is_farmer %}
 	 	<li class="nav-item active">
-	        <a class="nav-link" style="color:#FFFFFF" href="/store/agroprod/">Agro prods <span class="sr-only">(current)</span></a>
+	        <a class="nav-link" style="color:#000000" href="/store/agroprod/">AGRO PRODS <span class="sr-only">(current)</span></a>
 	      </li>
 	      <li class="nav-item active">
-	        <a class="nav-link" style="color:#FFFFFF" href="/store/addprod/">Add product <span class="sr-only">(current)</span></a>
+	        <a class="nav-link" style="color:#000000" href="/store/addprod/">ADD PRODUCT <span class="sr-only">(current)</span></a>
 	      </li>
 	      {% endif %}
 	    </ul>
 	    {% if user.is_authenticated %}
 	    <div id="log" class="form-inline my-2 my-lg-0">
-	     	<a href="login/"class="btn btn-warning">{{request.user.username}}</a>
+	     	<a href="login/"class="btn success">{{request.user.username}}</a>
 	     	
 	     	<a href="{% url 'cart' %}">
 	    		<img  id="cart-icon" src="{% static 'images/cart.png' %}">
@@ -111,7 +111,7 @@
 	    </div>
 	    {% else %}
 	    <div class="form-inline my-2 my-lg-0">
-	     	<a href="/login/"class="btn btn-warning">Login / Signup</a>
+	     	<a href="/login/" class="btn success">Login / Signup</a>
 	     	
 	     	<a href="{% url 'cart' %}">
 	    		<img  id="cart-icon" src="{% static 'images/cart.png' %}">
@@ -143,16 +143,15 @@
 
 <style type="text/css">
 	#nav{
-		background-color:rgba(0, 0, 0, 0.932)
+		background-color:white;
+		font-family: 'Trebuchet MS', sans-serif;
 	}
 
 	#txt{
 		color:rgb(255, 255, 255);
 		font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 	}
-	b{
-		color:#fc3200;
-	}
+	
 	body{
 		background: -webkit-linear-gradient(left, rgb(34, 189, 3), rgb(41, 122, 3), rgb(114, 231, 5), rgb(7, 202, 111));
 	background-size: 100%;
@@ -162,6 +161,26 @@
 		background: -webkit-linear-gradient(left, rgb(34, 189, 3), rgb(41, 122, 3), rgb(114, 231, 5), rgb(7, 202, 111));
 	}
 
+	.btn
+	{
+	  border: 2px solid black;
+	  background-color: white;
+	  color: black;
+	  /*padding: 14px 28px;*/
+	  font-size: 16px;
+	  cursor: pointer;
+	}
+	.success
+	{
+	  border-color: #04AA6D;
+	  color: green;
+	  border-radius:10px;
+	}
+	.success:hover
+	{
+	  background-color: #04AA6D;
+	  color: white;
+	}
 
 </style>
 </html>

@@ -28,13 +28,13 @@ def diseaseans(request):
 	symptom=request.POST.get("symptom")
 	symptom=symptom.lower()
 	if form.is_valid():
-		cname=form.cleaned_data['patient']
+		cname=form.cleaned_data['crop']
 		#print("this",form.cleaned_data['patient'],"symp",symptom)
 		if cname==None:
 			print("working")
 			return redirect('/disease/')
-		searchqry=Diseasetypes.objects.all().filter(patient=cname)
-		suspect=Diseasetypes.objects.all().filter(patient=cname)
+		searchqry=Diseasetypes.objects.all().filter(crop=cname)
+		suspect=Diseasetypes.objects.all().filter(crop=cname)
 		#search=Diseasetypes.objects.values_list('symptoms')
 		for i in searchqry:
 			temp=str(i.symptoms)

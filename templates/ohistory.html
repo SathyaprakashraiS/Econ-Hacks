@@ -20,61 +20,47 @@
 <body>
 
 	<nav id="nav" class="navbar navbar-expand-lg">
-	  <a id="txt"class="navbar-brand" href="/"><b style="color:#fc3200">ECON AGRO</b></a>
+	  <a id="txt"class="navbar-brand" href="/"><b style="color:#32F700">ECON AGRO</b></a>
 	  <button class="navbar-toggler navbar-light bg-warning" type="button" data-toggle="collapse" style="background-color: #FF8F00;" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
-
 	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 	    <ul class="navbar-nav mr-auto">
 	    <li class="nav-item active">
-	        <a class="nav-link" style="color:#FFFFFF" href="/store/">SHOP <span class="sr-only">(current)</span></a>
+	        <a class="nav-link" style="color:#000000" href="/store/">STORE <span class="sr-only">(current)</span></a>
 	      </li>
-	      <!--<li class="nav-item active">
-	        <a class="nav-link" href="{% url 'store' %}">Store <span class="sr-only">(current)</span></a>
-	      </li>-->
 	      {% if user.is_authenticated %}
 	      <li class="nav-item active">
-	        <a id="txt" class="nav-link" href="/store/history"><b style="color:#fc3200">History </b><span class="sr-only">(current)</span></a>
+	        <a id="txt" class="nav-link" style="color:#000000" href="/store/history">HISTORY <span class="sr-only">(current)</span></a>
 	      </li>
 	 	{% endif %}
 	 	{% if user.is_dboy %}
 	      <li class="nav-item active">
-	        <a id="txt" class="nav-link" href="/store/delivery/" style="color:#FFFFFF">Delivery <span class="sr-only">(current)</span></a>
+	        <a id="txt" class="nav-link" href="/store/delivery/" style="color:#000000">DELIVERY <span class="sr-only">(current)</span></a>
 	      </li>
 	      <li class="nav-item active">
-	        <a class="nav-link" style="color:#FFFFFF" href="/store/vaccine/">Vaccine Form <span class="sr-only">(current)</span></a>
+	        <a class="nav-link" style="color:#000000" href="/store/vaccine/">VACCINE FORM <span class="sr-only">(current)</span></a>
 	      </li>
 	 	{% endif %}
+	 	{% if user.is_farmer %}
+	 	<li class="nav-item active">
+	        <a class="nav-link" style="color:#000000" href="/store/agroprod/">AGRO PRODS <span class="sr-only">(current)</span></a>
+	      </li>
+	      <li class="nav-item active">
+	        <a class="nav-link" style="color:#000000" href="/store/addprod/">ADD PRODUCT <span class="sr-only">(current)</span></a>
+	      </li>
+	      {% endif %}
 	    </ul>
 	    {% if user.is_authenticated %}
 	    <div class="form-inline my-2 my-lg-0">
-	     	<a href="login/"class="btn btn-warning">{{request.user.username}}</a>
-	     	
-	     	<!--
-	     	<a href="{% url 'cart' %}">
-	    		<img  id="cart-icon" src="{% static 'images/cart.png' %}">
-	    	</a>
-	    	<p id="cart-total">{{cartItems}}</p>
-		-->
-
+	     	<a href="login/"class="btn success">{{request.user.username}}</a>
 	    </div>
 	    {% else %}
-	<!-- 
-	cant be accesed without authenticating so no use of this part   
-	    <div class="form-inline my-2 my-lg-0">
-	     	<a href="login/"class="btn btn-warning">Login / Signup</a>
-	     	
-	     	<a href="{% url 'cart' %}">
-	    		<img  id="cart-icon" src="{% static 'images/cart.png' %}">
-	    	</a>
-	    	<p id="cart-total">{{cartItems}}</p>
-
-	    </div>
-	-->
 	    {% endif %}
 	  </div>
 	</nav>
+
+
 <h1 style="text-align:center;">Previously Ordered</h1>
 
 <div class="outer">
@@ -200,7 +186,7 @@ body
 }
 
 	#nav{
-		background-color:black;
+		background-color:white;
 	}
 	#txt{
 		color:white;
@@ -214,7 +200,26 @@ body
 	div hr{
 		background-color:orangered;
 	}
-
+	.btn
+	{
+	  border: 2px solid black;
+	  background-color: white;
+	  color: black;
+	  /*padding: 14px 28px;*/
+	  font-size: 16px;
+	  cursor: pointer;
+	}
+	.success
+	{
+	  border-color: #04AA6D;
+	  color: green;
+	  border-radius:10px;
+	}
+	.success:hover
+	{
+	  background-color: #04AA6D;
+	  color: white;
+	}
 
 </style>
 </html>
