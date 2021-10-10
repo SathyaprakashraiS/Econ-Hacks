@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 	<div class="row">
-		<form id="form-id" method="post" action="/store/submitprod/">
+		<form id="form-id" method="POST" action="/store/submitprod/" enctype="multipart/form-data">
 			{% csrf_token %}
 			{{ form.as_p }}
 			<!-- <label for="itemname">Name of the item: </label>
