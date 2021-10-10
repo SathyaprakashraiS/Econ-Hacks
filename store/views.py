@@ -7,7 +7,7 @@ from .utils import cookieCart, cartData, guestOrder
 from .forms import OrdererForm
 from datetime import date
 from django.contrib import messages
-from .forms import CustomUserForm
+from .forms import *
 from django.http import HttpResponse,HttpResponseRedirect
 
 def viewprofile(request):
@@ -141,3 +141,20 @@ def agroprod(request):
 		'products':products, 'cartItems':cartItems
 	}
 	return render(request,"agroprod.html",context)
+
+def addprod(request):
+	form=AgroprodForm()
+	context={
+		'form':form
+	}
+	return render(request,"addprod.html",context)
+
+def submitprod(request):
+	form=AgroprodForm(request.POST,request.FILES)
+	if form.is_valid():
+		form.save()
+		messages.success(request, "Thank you! You have successfully added your product!")
+		return HttpResponseRedirect('/store/')
+	else:
+		messages.failure(request, "Error! product was not added !")
+		return HttpResponseRedirect('/store/addprod')

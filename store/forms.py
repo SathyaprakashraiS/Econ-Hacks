@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth import get_user_model
 from django.forms import ModelForm
-from .models import Orderer,CustomUser
+from .models import *
 
 class CustomUserForm(forms.ModelForm):
      """Form for the image model"""
@@ -15,4 +15,10 @@ class OrdererForm(forms.ModelForm):
     class Meta:
        model = Orderer
        fields = ('name','email','address1','address2','city','state','zipcode','country','landmark','count','quantity','customerhousetype','contactno','paymode')
-		
+
+class AgroprodForm(forms.ModelForm):
+     """Form for the image model"""
+     class Meta:
+        model = Agroproduct
+        fields ='__all__'
+        exclude = ('approval',)

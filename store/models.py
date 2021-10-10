@@ -135,9 +135,11 @@ class ShippingAddress(models.Model):
 
 class Agroproduct(models.Model):
 	name = models.CharField(max_length=200)
-	price = models.FloatField()
-	image = models.ImageField(null=True, blank=True)
-	use=models.CharField(null=True,blank=True,max_length=1000)
+	price = models.FloatField(default=0)
+	weight=models.FloatField(default=0)
+	image = models.ImageField(upload_to='images',default='images/tst2.png')
+	description=models.CharField(null=True,blank=True,max_length=1000)
+	approval=models.BooleanField(default=False)
 
 	def __str__(self):
 		return self.name
