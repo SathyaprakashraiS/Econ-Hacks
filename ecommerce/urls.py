@@ -20,7 +20,6 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('main/',include('store.urls')),
     path('cropmap/',include('cropmap.urls')),
     path('delivery/',include('deliveryperson.urls')),
     path('accounts/', include('allauth.urls')),
@@ -28,6 +27,7 @@ urlpatterns = [
     path('',include("django.contrib.auth.urls")),
     path('', include('main.urls')),
     path('store/', include('store.urls')),
+    path('',include('store.urls')),
     path('disease/', include('disease.urls')),
 ]
 

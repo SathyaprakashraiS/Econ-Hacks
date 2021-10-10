@@ -64,7 +64,7 @@
 <body>
 
 	<nav id="nav" class="navbar navbar-expand-lg  ">
-	  <a id="txt"class="navbar-brand" href="/"><b style="color:#fc3200">ECON AGRO</b></a>
+	  <a id="txt"class="navbar-brand" href="/"><b style="color:#2eee08">DOPE FARM</b></a>
 	  <button class="navbar-toggler navbar-light bg-warning" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
@@ -75,7 +75,7 @@
 	        <a class="nav-link" href="{% url 'store' %}">Store <span class="sr-only">(current)</span></a>
 	      </li>-->
 	      <li class="nav-item active">
-	        <a class="nav-link" style="color:#fc3200" href="/store/">SHOP <span class="sr-only">(current)</span></a>
+	        <a class="nav-link" style="color:#09d314" href="/store/">SHOP <span class="sr-only">(current)</span></a>
 	      </li>
 	      {% if user.is_authenticated %}
 	      <li class="nav-item active">
@@ -90,9 +90,11 @@
 	        <a class="nav-link" style="color:#FFFFFF" href="/store/vaccine/">Vaccine Form <span class="sr-only">(current)</span></a>
 	      </li>
 	 	{% endif %}
+	 	{% if user.is_farmer %}
 	 	<li class="nav-item active">
 	        <a class="nav-link" style="color:#FFFFFF" href="/store/agroprod/">Agro prods <span class="sr-only">(current)</span></a>
 	      </li>
+	      {% endif %}
 	    </ul>
 	    {% if user.is_authenticated %}
 	    <div id="log" class="form-inline my-2 my-lg-0">
@@ -149,12 +151,12 @@
 		color:#fc3200;
 	}
 	body{
-		background: -webkit-linear-gradient(left, rgb(240, 157, 4), rgb(255, 103, 1), rgb(231, 58, 5), rgb(255, 0, 0));
+		background: -webkit-linear-gradient(left, rgb(34, 189, 3), rgb(41, 122, 3), rgb(114, 231, 5), rgb(7, 202, 111));
 	background-size: 100%;
 	height: cover;
 	}
 	.container{
-		background: -webkit-linear-gradient(left, rgb(240, 157, 4), rgb(255, 103, 1), rgb(231, 58, 5), rgb(255, 0, 0));
+		background: -webkit-linear-gradient(left, rgb(34, 189, 3), rgb(41, 122, 3), rgb(114, 231, 5), rgb(7, 202, 111));
 	}
 
 
