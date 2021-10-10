@@ -10,6 +10,9 @@ import json
 import datetime
 from .models import *
 from .forms import *
+import difflib
+from re import search
+
 # Create your views here.
 def disease(request):
 	form=DiseaseForm(request.POST)
@@ -20,19 +23,35 @@ def disease(request):
 	return render(request,"disease.html",context)
 
 def diseaseans(request):
-	cname=request.POST.get("name")
+	form=DiseaseForm(request.POST)
+	#cname=request.POST.get("name")
 	symptom=request.POST.get("symptom")
-	if cname==None:
-		print("working")
-		return redirect('/disease/')
-	search=Diseasetypes.objects.all().filter(patient=cname)
-	for i in search:
-		if ((SequenceMatcher(None,str(symptom),str(i.symptoms)))>0.6):
-			print("match found")
-		else:
-			print("no match found")
-		if symptom in str(i.symptoms):
-			print("found")
+	symptom=symptom.lower()
+	if form.is_valid():
+		cname=form.cleaned_data['patient']
+		#print("this",form.cleaned_data['patient'],"symp",symptom)
+		if cname==None:
+			print("working")
+			return redirect('/disease/')
+		searchqry=Diseasetypes.objects.all().filter(patient=cname)
+		#search=Diseasetypes.objects.values_list('symptoms')
+		for i in searchqry:
+			temp=str(i.symptoms)
+			temp=temp.lower()
+			if len(temp)>len(symptom):
+				if search(symptom,temp):
+					print ("Found!")
+					print("ratio:",difflib.SequenceMatcher(None,symptom,temp).ratio())
+				else:
+					print("Not found!0")
+					print("ratio:",difflib.SequenceMatcher(None,symptom,temp).ratio())
+			else:
+				if search(temp,symptom):
+					print ("Found!")
+					print("ratio:",difflib.SequenceMatcher(None,symptom,temp).ratio())
+				else:
+					print ("Not found!1")
+					print("ratio:",difflib.SequenceMatcher(None,symptom,temp).ratio())
 	context={
 
 	}
