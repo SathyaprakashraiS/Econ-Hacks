@@ -22,7 +22,7 @@
     <body>
 
 <nav id="nav" class="navbar navbar-expand-lg">
-	  <a id="txt" class="navbar-brand" href="{% url 'store' %}"><b style="color:#fc3200;">SHOP</b></a>
+	  <a id="txt"class="navbar-brand" href="/"><b style="color:#fc3200">ECON AGRO</b></a>
 	  <button class="navbar-toggler navbar-light bg-warning" type="button" data-toggle="collapse" style="background-color: #FF8F00;" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
@@ -32,6 +32,9 @@
 	      <!--<li class="nav-item active">
 	        <a class="nav-link" href="{% url 'store' %}">Store <span class="sr-only">(current)</span></a>
 	      </li>-->
+	      <li class="nav-item active">
+	        <a class="nav-link" style="color:#FFFFFF" href="/store/">SHOP <span class="sr-only">(current)</span></a>
+	      </li>
 	      {% if user.is_authenticated %}
 	      <li class="nav-item active">
 	        <a id="txt" class="nav-link" href="/store/history"><b style="color:#FFFFFF;">History </b><span class="sr-only">(current)</span></a>

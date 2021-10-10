@@ -129,3 +129,15 @@ def orderhistory(request):
 	obj=Orderer.objects.all().filter(email=uemail,done=3)
 	cobj=Orderer.objects.all().filter(email=uemail,done__lte=2)
 	return render(request,'ohistory.html',{'uemail':uemail,'obj':obj,'cobj':cobj})
+
+def agroprod(request):
+	data = cartData(request)
+	cartItems = data['cartItems']
+	order = data['order']
+	items = data['items']
+	products = Agroproduct.objects.all()
+	
+	context={
+		'products':products, 'cartItems':cartItems
+	}
+	return render(request,"agroprod.html",context)

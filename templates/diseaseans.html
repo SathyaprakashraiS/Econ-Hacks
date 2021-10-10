@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>NEWS</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+</head>
+<body>
+
+	<nav id="nav" class="navbar navbar-expand-lg ">
+	  <a id="txt" class="navbar-brand" href="/"><b>ECON AGRO</b></a>
+	  <button class="navbar-toggler navbar-light bg-warning" style="background-color: #FF8F00;" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	    <ul class="navbar-nav mr-auto">
+	      <li class="nav-item active">
+	        <a id="txt" style="color: #FFFFFF;" class="nav-link" href="/news/">NEWS <span class="sr-only">(current)</span></a>
+	      </li>
+	      <li class="nav-item active">
+	        <a id="txt" style="color: #FFFFFF;" class="nav-link" href="/tips/">TIPS <span class="sr-only">(current)</span></a>
+	      </li>
+	      <li class="nav-item active">
+	        <a id="txt" style="color: #FFFFFF;" class="nav-link" href="/store/">STORE <span class="sr-only">(current)</span></a>
+	      </li>
+	      <li class="nav-item active">
+	        <a id="txt" style="color: #FF8F00;" class="nav-link" href="/store/">DISEASE <span class="sr-only">(current)</span></a>
+	      </li>
+	    </ul>
+	    {% if user.is_authenticated %}
+	    <div class="form-inline my-2 my-lg-0">
+	     	<a href="#"class="btn btn-warning">{{request.user.username}}</a>
+	    </div>
+	    {% else %}
+	    {% endif %}
+	  </div>
+	</nav>
+
+<h1 style="text-align:center;"><b style="color:black;">DISEASE</b></h1>
+{% for i in suspect %}
+	<p>{{i.dname}}</p>
+	<p>{{i.symptoms}}</p>
+	<p>{{i.patient}}</p>
+{% endfor %}
+
+<style type="text/css">
+body
+{
+	background: -webkit-linear-gradient(left, rgb(240, 157, 4), rgb(255, 103, 1), rgb(231, 58, 5), rgb(255, 0, 0));
+	background-size: 100%;
+	height: cover;
+}
+	.newscontainer
+	{
+		display: flex;
+		flex-wrap: wrap;
+		list-style: none;
+	}
+	.newscard
+	{
+		width:30%;
+		padding-top: 0%;
+		grid-template-columns: auto auto auto auto;
+		justify-content: space-evenly;
+		padding-right: 1%;
+		padding-bottom: 0%;
+		padding-left: 1%;
+		margin-left:3%;
+		margin-right:0%;
+		margin-top:0%;
+		margin-bottom:5%;
+		background-color:#FFFFFF;
+		border-radius:4%;
+		height:440px;
+	}
+
+	.newsimg
+	{
+		height: 350px;
+		width: 100%;
+		margin-top:3%;
+		transition: transform .2s;
+	}
+
+	.newsimg:hover
+	{
+		transform: scale(1.1);
+	}
+
+	#nav{
+		background-color:black;
+	}
+	#txt{
+		color:black;
+		font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+	}
+
+	.inner{
+		width:400px;
+		margin-top:20px;
+		display:flex;
+		border:5px solid black;
+		flex-flow: column;
+		align-items: center;
+		
+	}
+	
+
+	#navbar-toggler
+	{
+		background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+	}
+
+.mainform
+{
+	margin-top: 10%;
+}
+
+.centerform {
+	padding-top: 10px;
+	padding-bottom: 10px;
+  width:80%;
+  height:80%;
+  margin: auto;
+  background: white;
+  color: orange;
+  border:5px solid black;
+  /*padding: 10px;*/
+  border-radius: 0%;
+	}
+.formcontent
+{
+	margin-left:32%;
+}
+	b{
+		color:#fc3200;
+	}
+
+</style>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+	<script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+</body>
+</html>

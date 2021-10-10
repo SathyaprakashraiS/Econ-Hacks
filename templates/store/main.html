@@ -64,7 +64,7 @@
 <body>
 
 	<nav id="nav" class="navbar navbar-expand-lg  ">
-	  <a id="txt"class="navbar-brand" href="{% url 'store' %}"><b>SHOP</b></a>
+	  <a id="txt"class="navbar-brand" href="/"><b style="color:#fc3200">ECON AGRO</b></a>
 	  <button class="navbar-toggler navbar-light bg-warning" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
@@ -74,19 +74,25 @@
 	      <!--<li class="nav-item active">
 	        <a class="nav-link" href="{% url 'store' %}">Store <span class="sr-only">(current)</span></a>
 	      </li>-->
+	      <li class="nav-item active">
+	        <a class="nav-link" style="color:#fc3200" href="/store/">SHOP <span class="sr-only">(current)</span></a>
+	      </li>
 	      {% if user.is_authenticated %}
 	      <li class="nav-item active">
-	        <a class="nav-link" style="color:#FFFFFF" href="history/">History <span class="sr-only">(current)</span></a>
+	        <a class="nav-link" style="color:#FFFFFF" href="/store/history/">History <span class="sr-only">(current)</span></a>
 	      </li>
 	 	{% endif %}
 	 	{% if user.is_dboy %}
 	      <li class="nav-item active">
-	        <a class="nav-link" style="color:#FFFFFF" href="delivery/">Delivery <span class="sr-only">(current)</span></a>
+	        <a class="nav-link" style="color:#FFFFFF" href="/delivery/">Delivery <span class="sr-only">(current)</span></a>
 	      </li>
 	      <li class="nav-item active">
-	        <a class="nav-link" style="color:#FFFFFF" href="vaccine/">Vaccine Form <span class="sr-only">(current)</span></a>
+	        <a class="nav-link" style="color:#FFFFFF" href="/store/vaccine/">Vaccine Form <span class="sr-only">(current)</span></a>
 	      </li>
 	 	{% endif %}
+	 	<li class="nav-item active">
+	        <a class="nav-link" style="color:#FFFFFF" href="/store/agroprod/">Agro prods <span class="sr-only">(current)</span></a>
+	      </li>
 	    </ul>
 	    {% if user.is_authenticated %}
 	    <div id="log" class="form-inline my-2 my-lg-0">

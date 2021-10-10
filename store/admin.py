@@ -9,7 +9,7 @@ class CustomUserAdmin(UserAdmin):
    UserAdmin.list_filter += ('is_dboy','city','formsubmitted','vacinated','merit')
    UserAdmin.fieldsets += (('is_dboy', {'fields': ('is_dboy','city','formsubmitted','vacinated','merit')}),) 
   
-  
+
 
 
 admin.site.register(CustomUser, CustomUserAdmin)
@@ -21,3 +21,4 @@ admin.site.register(Product)
 admin.site.register(Order)
 admin.site.register(OrderItem)
 admin.site.register(ShippingAddress)
+admin.site.register(Agroproduct)

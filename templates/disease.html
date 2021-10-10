@@ -45,16 +45,7 @@
 <form id="form-id" method="post" action="diseaseans/">
     {% csrf_token %}
     {{ form.as_p }}
-    <label for="name">Choose a crop:</label>
-    {% for i in patientname %}
-    <select id="name" name="name">
-    	<!-- {% for i in patientname %} -->
-	    <option value="{{i.patient}}">{{i.patient}}</option>
-	    <!-- {% endfor %} -->
-    	}
-	</select>
-	{% endfor %}
-    <br><label for="symptom">What are the symptoms? </label><br>
+    <label for="symptom">What are the symptoms? </label><br>
     <input type="symptom" id="symptom" name="symptom"><br><br>
          <!-- <p><b> sub Name:</b>{{i.mockpapername}}</p>
          <input type="hidden" name="mockname" value="{{i.pk}}"/></p><hr>

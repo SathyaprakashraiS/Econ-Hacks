@@ -34,6 +34,7 @@ def diseaseans(request):
 			print("working")
 			return redirect('/disease/')
 		searchqry=Diseasetypes.objects.all().filter(patient=cname)
+		suspect=Diseasetypes.objects.all().filter(patient=cname)
 		#search=Diseasetypes.objects.values_list('symptoms')
 		for i in searchqry:
 			temp=str(i.symptoms)
@@ -43,6 +44,7 @@ def diseaseans(request):
 					print ("Found!")
 					print("ratio:",difflib.SequenceMatcher(None,symptom,temp).ratio())
 				else:
+					suspect=suspect.exclude(symptoms=i.symptoms)
 					print("Not found!0")
 					print("ratio:",difflib.SequenceMatcher(None,symptom,temp).ratio())
 			else:
@@ -50,9 +52,10 @@ def diseaseans(request):
 					print ("Found!")
 					print("ratio:",difflib.SequenceMatcher(None,symptom,temp).ratio())
 				else:
+					suspect=suspect.exclude(symptoms=i.symptoms)
 					print ("Not found!1")
 					print("ratio:",difflib.SequenceMatcher(None,symptom,temp).ratio())
 	context={
-
+		'suspect':suspect
 	}
 	return render(request,"diseaseans.html",context)

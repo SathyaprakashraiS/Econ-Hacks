@@ -9,10 +9,12 @@ User = settings.AUTH_USER_MODEL
 
 class CustomUser(AbstractUser):
     is_dboy = models.BooleanField(default=False)
+    # is_farmer=models.BooleanField(default=False)
     city =models.CharField(max_length=10,default='city')
     formsubmitted = models.BooleanField(default=False)
     vacinated = models.IntegerField(default=0)
     merit=models.IntegerField(default=100)
+    is_farmer=models.BooleanField(default=False)
 # Create your models here.
 
 class Orderer(models.Model):
@@ -130,3 +132,20 @@ class ShippingAddress(models.Model):
 
 	def __str__(self):
 		return self.address
+
+class Agroproduct(models.Model):
+	name = models.CharField(max_length=200)
+	price = models.FloatField()
+	image = models.ImageField(null=True, blank=True)
+	use=models.CharField(null=True,blank=True,max_length=1000)
+
+	def __str__(self):
+		return self.name
+
+	@property
+	def imageURL(self):
+		try:
+			url = self.image.url
+		except:
+			url = ''
+		return url
