@@ -1,13 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
+    <title>CROP MAP</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
 </head>
 <body>
-    <h1>INDIAN CROP MAP</h1>
-    <div style="width:800px; height: 1000px;">
+
+    <nav id="nav" class="navbar navbar-expand-lg ">
+    <a id="txt" class="navbar-brand" href="/"><b style="color:#32F700;">ECON AGRO</b></a>
+    <button class="navbar-toggler navbar-light bg-warning" style="background-color: #FF8F00;" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a id="txt" style="color: #000000;" class="nav-link" href="/news/">NEWS <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a id="txt" style="color: #000000;" class="nav-link" href="/tips/">TIPS <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a id="txt" style="color:#000000;" class="nav-link" href="/cropmap/"><b>CROP MAP </b><span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a id="txt" style="color: #000000;" class="nav-link" href="/store/">STORE <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a id="txt" style="color: #000000;" class="nav-link" href="/disease/">DISEASE <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+      {% if user.is_authenticated %}
+      <div class="form-inline my-2 my-lg-0">
+        <a href="#"class="btn success">{{request.user.username}}</a>
+      </div>
+      {% else %}
+      {% endif %}
+    </div>
+  </nav>
+
+    <h1 style="text-align: center;">INDIAN CROP MAP</h1>
+    <div class="themap" style="width:1000px; height: 1500px;">
         {{map1|safe}}
     </div>
 </body>
@@ -16,5 +56,45 @@
 body{
     background: -webkit-linear-gradient(left, rgb(34, 189, 3), rgb(41, 122, 3), rgb(114, 231, 5), rgb(7, 202, 111));
 }
+.themap
+{
+    margin-left: 15%;
+    border: 4px solid black;
+}
+#nav{
+        background-color:white;
+        font-family: 'Trebuchet MS', sans-serif;
+    }
+    #navbar-toggler
+    {
+        background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+    }
+.btn
+  {
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+    /*padding: 14px 28px;*/
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .success
+  {
+    border-color: #04AA6D;
+    color: green;
+    border-radius:10px;
+  }
+  .success:hover
+  {
+    background-color: #04AA6D;
+    color: white;
+  }
 </style>
 </html>

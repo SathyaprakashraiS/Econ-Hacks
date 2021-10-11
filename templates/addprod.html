@@ -1,7 +1,10 @@
 {% extends 'store/main.html' %}
 {% load static %}
 {% block content %}
+<div class="content">
+	<h1 style="text-align:center">ADD PRODUCT</h1>
 	<div class="row">
+		<div class="theform">
 		<form id="form-id" method="POST" action="/store/submitprod/" enctype="multipart/form-data">
 			{% csrf_token %}
 			{{ form.as_p }}
@@ -13,8 +16,31 @@
 			<input type="number" id="weight" name="weight"><br>
 
 			<input type="file" id="itemimg" name="itemimg"><br> -->
-			<button id="bt" type="submit">ADD ITEM</button>
+			<button id="bt" class="thebutton" type="submit">ADD ITEM</button>
 		</form>
 	</div>
-
+	</div>
+</div>
+<style type="text/css">
+.theform
+{
+	margin-left: 30%;
+	border: 5px solid black;
+	background: white;
+	padding-top:3%;
+	padding-left:5%;
+	padding-bottom: 3%;
+}
+.thebutton
+{
+	border-radius: 10px;
+	border: 3px solid black;
+	background: #32F700;
+	color: black;
+}
+.content
+{
+	margin-top: 8%;
+}
+</style>
 {% endblock content %}

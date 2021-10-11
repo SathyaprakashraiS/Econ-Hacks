@@ -7,6 +7,7 @@
 			<img class="thumbnail" src="{{product.imageURL}}">
 			<div class="box-element product">
 				<h6 style="color:#000000;"><strong>{{product.name}}</strong></h6>
+				<h6 style="color:#000000;"><strong>Delivered to {{product.sell_location}} only</strong></h6>
 				<hr>
 				{% if user.is_authenticated %}
 				<button data-product="{{product.id}}" data-action="add" class="btn btn-outline-primary add-btn update-cart">Add to Cart</button>

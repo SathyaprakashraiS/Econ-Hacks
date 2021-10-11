@@ -37,7 +37,7 @@ def store(request):
 	order = data['order']
 	items = data['items']
 
-	products = Agroproduct.objects.all()
+	products = Agroproduct.objects.all().filter(approval=True)
 	context = {'products':products, 'cartItems':cartItems}
 	return render(request, 'store/store.html', context)
 

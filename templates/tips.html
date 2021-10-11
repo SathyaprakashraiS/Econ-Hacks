@@ -26,6 +26,9 @@
           <a id="txt" style="color: #000000;" class="nav-link" href="/tips/"><b>TIPS </b><span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
+          <a id="txt" style="color:#000000;" class="nav-link" href="/cropmap/">CROP MAP <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
           <a id="txt" style="color: #000000;" class="nav-link" href="/store/">STORE <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
@@ -34,7 +37,7 @@
       </ul>
       {% if user.is_authenticated %}
       <div class="form-inline my-2 my-lg-0">
-        <a href="#"class="btn btn-warning">{{request.user.username}}</a>
+        <a href="#"class="btn success">{{request.user.username}}</a>
       </div>
       {% else %}
       {% endif %}
@@ -403,7 +406,26 @@ body
 	b{
 		color:black;
 	}
-
+.btn
+  {
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+    /*padding: 14px 28px;*/
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .success
+  {
+    border-color: #04AA6D;
+    color: green;
+    border-radius:10px;
+  }
+  .success:hover
+  {
+    background-color: #04AA6D;
+    color: white;
+  }
 </style>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
