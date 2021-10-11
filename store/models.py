@@ -68,6 +68,12 @@ class Product(models.Model):
 	price = models.FloatField()
 	digital = models.BooleanField(default=False,null=True, blank=True)
 	image = models.ImageField(null=True, blank=True)
+	price = models.FloatField(default=0)
+	weight=models.FloatField(default=0)
+	description=models.CharField(null=True,blank=True,max_length=1000)
+	sell_location=models.CharField(max_length=100,default="place where you want to sell")
+	veg=models.BooleanField(default=False)
+	approval=models.BooleanField(default=False)
 
 	def __str__(self):
 		return self.name
