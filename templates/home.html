@@ -51,6 +51,9 @@
         <a href="#"class="btn success">{{request.user.username}}</a>
       </div>
       {% else %}
+      <div class="form-inline my-2 my-lg-0">
+        <a href="/login/" class="btn success">Login / Signup</a>
+      </div>
       {% endif %}
     </div>
   </nav>
